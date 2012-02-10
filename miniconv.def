@@ -1,0 +1,7 @@
+LIBRARY miniconv
+EXPORTS
+	miniconv_open
+	miniconv_open2
+	miniconv
+	miniconv2
+	miniconv_close
