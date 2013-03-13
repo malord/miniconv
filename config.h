@@ -6,6 +6,12 @@
 /* 	You must define __BIG_ENDIAN__ if compiling on a big endian platform. */
 /*#define __BIG_ENDIAN__*/
 
+#ifndef __BIG_ENDIAN__
+	#if defined(__BYTE_ORDER__) && defined(__ORDER_BIG_ENDIAN__) && __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+		#define __BIG_ENDIAN__
+	#endif
+#endif
+
 #ifdef __cplusplus
 	#define MINICONV_INLINE static inline
 #elif defined(_MSC_VER) || defined(__GNUC__) || defined(__clang__)
@@ -15,7 +21,7 @@
 #endif
 
 #ifndef MINICONV_PUBLIC
-	#define MINICONV_PUBLIC 
+	#define MINICONV_PUBLIC
 #endif
 
 /* If your platform has it, include <stdint.h> here */
