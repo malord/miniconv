@@ -24,7 +24,7 @@
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* precompile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = precompile.h; sourceTree = "<group>"; };
 		4DC6F4A61168DC0E00EFFD2A /* libminiconv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libminiconv.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4DC6F9931168E68300EFFD2A /* libminiconv-iPhone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libminiconv-iPhone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DC6F9931168E68300EFFD2A /* libminiconv-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libminiconv-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DC8E62414DFE81900791CEA /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		4DE62E7611569CE2004C05FB /* miniconv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miniconv.c; sourceTree = "<group>"; };
 		4DF1936411CF9544008FAC30 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 			children = (
 				D2AAC0C705546C1D00DB518D /* libminiconv.dylib */,
 				4DC6F4A61168DC0E00EFFD2A /* libminiconv.a */,
-				4DC6F9931168E68300EFFD2A /* libminiconv-iPhone.a */,
+				4DC6F9931168E68300EFFD2A /* libminiconv-ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,9 +167,9 @@
 			productReference = 4DC6F4A61168DC0E00EFFD2A /* libminiconv.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		4DC6F9921168E68300EFFD2A /* miniconv-iPhone */ = {
+		4DC6F9921168E68300EFFD2A /* miniconv-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4DC6F9971168E77500EFFD2A /* Build configuration list for PBXNativeTarget "miniconv-iPhone" */;
+			buildConfigurationList = 4DC6F9971168E77500EFFD2A /* Build configuration list for PBXNativeTarget "miniconv-iOS" */;
 			buildPhases = (
 				4DC6F98F1168E68300EFFD2A /* Headers */,
 				4DC6F9901168E68300EFFD2A /* Sources */,
@@ -179,9 +179,9 @@
 			);
 			dependencies = (
 			);
-			name = "miniconv-iPhone";
-			productName = "miniconv-iPhone";
-			productReference = 4DC6F9931168E68300EFFD2A /* libminiconv-iPhone.a */;
+			name = "miniconv-iOS";
+			productName = "miniconv-iOS";
+			productReference = 4DC6F9931168E68300EFFD2A /* libminiconv-ios.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		D2AAC0C605546C1D00DB518D /* miniconv-Dynamic */ = {
@@ -207,7 +207,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = 1DEB918108733D990010E9CD /* Build configuration list for PBXProject "miniconv" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -226,7 +226,7 @@
 			targets = (
 				4DC6F4A51168DC0E00EFFD2A /* miniconv-Static */,
 				D2AAC0C605546C1D00DB518D /* miniconv-Dynamic */,
-				4DC6F9921168E68300EFFD2A /* miniconv-iPhone */,
+				4DC6F9921168E68300EFFD2A /* miniconv-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -263,12 +263,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_GC = supported;
-				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -294,7 +294,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				INSTALL_PATH = "@executable_path";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = libminiconv;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
@@ -304,11 +304,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				GCC_ENABLE_OBJC_GC = supported;
-				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -336,7 +336,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				INSTALL_PATH = "@executable_path";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = libminiconv;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
@@ -383,8 +383,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_OBJC_GC = supported;
-				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -425,8 +423,6 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				GCC_ENABLE_OBJC_GC = supported;
-				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -496,7 +492,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "miniconv-iPhone";
+				PRODUCT_NAME = "miniconv-ios";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				ZERO_LINK = NO;
@@ -507,10 +503,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_GC = supported;
-				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -535,7 +531,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				INSTALL_PATH = /usr/local/lib;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = miniconv;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
@@ -545,10 +541,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_OBJC_GC = supported;
-				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -575,7 +571,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				INSTALL_PATH = /usr/local/lib;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = miniconv;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				ZERO_LINK = NO;
@@ -616,7 +612,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "miniconv-iPhone";
+				PRODUCT_NAME = "miniconv-ios";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 			};
@@ -658,7 +654,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "miniconv-iPhone";
+				PRODUCT_NAME = "miniconv-ios";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				ZERO_LINK = NO;
@@ -698,7 +694,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4DC6F9971168E77500EFFD2A /* Build configuration list for PBXNativeTarget "miniconv-iPhone" */ = {
+		4DC6F9971168E77500EFFD2A /* Build configuration list for PBXNativeTarget "miniconv-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4DC6F9941168E68400EFFD2A /* Debug */,
